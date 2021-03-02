@@ -13,7 +13,7 @@
       tags:
         - Java
 
-    - role: tomcat-role
+    - role: tomact-role
       tags:
         - Tomcat
 
