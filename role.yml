@@ -5,19 +5,18 @@
   become: true
   gather_facts: true
   roles: 
-    roles: 
-    - role: MySQL_role
+    - role: mysql-role
       tags:
-        - MySQL
+        - MySql
 
-    - role: Java_role
+    - role: myrole
       tags:
         - Java
 
-    - role: tomcat_role
+    - role: tomcat-role
       tags:
         - Tomcat
 
-    - role: nginx_role
+    - role: nginx-role
       tags:
         - Nginx
