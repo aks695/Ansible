@@ -4,13 +4,13 @@
   apt:
    name: openjdk-8-jdk
    state: present
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Installing Java
   yum:
    name: java-1.8.0-openjdk
    state: present
-  when: ansible_distribution == "RedHat"
+  when: ansible_facts['os_family'] == 'RedHat'
 
 
 
