@@ -5,13 +5,13 @@
   apt: 
    name: nginx
    state: present
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Installing nginx
   yum: 
    name: nginx
    state: present
-  when: ansible_distribution == "Redhat"
+  when: ansible_facts['os_family'] == 'RedHat'
   
 - name: Starting nginx on Redhat
   service:
