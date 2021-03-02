@@ -5,22 +5,22 @@
   apt:
    name: tomcat9
    state: present
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Installing tomcat
   yum:
    name: tomcat
    state: latest
-  when: ansible_distribution == "Redhat"
+  when: ansible_facts['os_family'] == 'RedHat'
 
 - name: Starting tomcat
   service:
     name: tomcat.service
     state: restarted
-  when: ansible_distribution == "Redhat"
+  when: ansible_facts['os_family'] == 'RedHat'
 
 - name: Starting tomcat
   service:
     name: tomcat9.service
     state: restarted
-  when: ansible_distribution == "Ubuntu" 
+  when: ansible_facts['os_family'] == 'Debian'
