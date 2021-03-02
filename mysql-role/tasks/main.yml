@@ -1,0 +1,17 @@
+---
+# tasks file for Assignment-8_ansible
+- name: Installing MySQL
+  apt: 
+    name: mysql-server 
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == 'Ubuntu' 
+  notify: RestartMySQL
+
+- name: Installing MySQL
+  yum: 
+     name: mysql-community-server
+     state: present
+     update_cache: yes
+  when: ansible_distribution == 'Redhat' 
+  notify: RestartMySQL for Redhat machine

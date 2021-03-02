@@ -1,0 +1,18 @@
+---
+# tasks file for myrole---
+- name: Installing Java
+  apt:
+   name: openjdk-8-jdk
+   state: present
+  when: ansible_distribution == "Ubuntu"
+
+- name: Installing Java
+  yum:
+   name: java-1.8.0-openjdk
+   state: present
+  when: ansible_distribution == "RedHat"
+
+
+
+
+...

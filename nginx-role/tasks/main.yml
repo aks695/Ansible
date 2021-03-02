@@ -1,0 +1,19 @@
+---
+# tasks file for nginx-role
+# tasks file for nginx_role
+- name: Installing nginx
+  apt: 
+   name: nginx
+   state: present
+  when: ansible_distribution == "Ubuntu"
+
+- name: Installing nginx
+  yum: 
+   name: nginx
+   state: present
+  when: ansible_distribution == "Redhat"
+  
+- name: Starting nginx on Redhat
+  service:
+     name: nginx
+     state: started

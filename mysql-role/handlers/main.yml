@@ -1,0 +1,12 @@
+---
+# handlers file for mysql-role
+# handlers file for myrole
+- name: RestartMySQL
+  service: 
+     name: mysql.service 
+     state: restarted
+
+- name: RestartMySQL for CentOS machine
+  service:
+     name: mysqld
+     state: restarted

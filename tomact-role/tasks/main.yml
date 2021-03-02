@@ -1,0 +1,26 @@
+---
+# tasks file for tomact-role
+
+- name: Installing Tomcat
+  apt:
+   name: tomcat9
+   state: present
+  when: ansible_distribution == "Ubuntu"
+
+- name: Installing tomcat
+  yum:
+   name: tomcat
+   state: latest
+  when: ansible_distribution == "Redhat"
+
+- name: Starting tomcat
+  service:
+    name: tomcat.service
+    state: restarted
+  when: ansible_distribution == "Redhat"
+
+- name: Starting tomcat
+  service:
+    name: tomcat9.service
+    state: restarted
+  when: ansible_distribution == "Ubuntu" 
